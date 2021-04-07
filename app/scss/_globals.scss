@@ -14,7 +14,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Public Sans', sans-serif;
-    font-size: $font-med;
+    font-size: $font-sm;
     font-weight: 300;
     color: $grayishBlue;
     line-height: 1.3;
@@ -22,6 +22,32 @@ body {
     &.noscroll {
         overflow: hidden;
     }
+
+    @include breakpoints-up(large) {
+        font-size: $font-med;
+    }
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 2.31rem;
+    line-height: 1.15;
+    color: $darkBlue;
+    margin-bottom: 1.5rem;
+
+    @include breakpoints-up(large){
+        font-size: $font-xlg;
+    }
+}
+
+p {
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 2.25rem;
 }
 
 a,
@@ -48,10 +74,42 @@ a:hover {
     }
 }
 
+//Container
+
+.container {
+    max-width: 69.375rem;
+    margin: 0 auto;
+    
+    &--pall {
+        padding: 2.25rem 1.5rem;
+    }
+    &--py {
+        padding-top: 2.25rem;
+        padding-bottom: 2.25rem;
+    }
+    &--px{
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;  
+    }
+    &--pt {
+        padding-top: 2.25rem;
+    }
+    &--pr {
+        padding-right: 1.5rem;
+    }     
+    &--pb {
+        padding-bottom: 2.25rem;
+    }    
+    &--pl {
+        padding-left: 1.5rem;  
+    }
+}
+
 //Buttons
 
 button,
 .button {
+    display: inline-block;
     padding: 0.875rem 2.1875rem;
     background: linear-gradient(to right, $limeGreen, $brightCyan);
     border: 0;
@@ -59,19 +117,26 @@ button,
     cursor: pointer;
     color: $white;
     font-weight: 400;
+    font-size: $font-sm;
+    color: $white;
+    transition: opacity 300ms ease-in-out;
+
+    &:hover {
+        opacity: 0.75;
+    }
 }
 
 //Vicibility 
 
 .hide-for-mobile {
-    @include brekpoints-down(medium) {
+    @include breakpoints-down(medium) {
         display: none;
     }
 }
 
 
 .hide-for-desktop {
-    @include brekpoints-up(large) {
+    @include breakpoints-up(large) {
         display: none;
     }
 
